@@ -25,10 +25,6 @@
 
  <script>
 
-    var ss = $(".basic").select2({
-    tags: true,
-});
-
      function notificacion(msg, option = 1){
          Snackbar.show({
              text: msg.toUpperCase(),

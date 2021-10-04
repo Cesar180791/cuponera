@@ -12,21 +12,21 @@
                     <table class="table table-bordered table-striped mt-1">
                         <thead class="text-white" style="background: #1B4F72;">
                             <tr>
-                                <th class="table-th text-white">Rubro</th>
-                                <th class="table-th text-white">Descripcion</th>
-                                <th class="table-th text-white">Acciones</th>
+                                <th class="table-th text-white text-center">ID</th>
+                                <th class="table-th text-white text-center">Permisos</th>
+                                <th class="table-th text-white text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($headings as $heading)
+                            @foreach($permisos as $permiso)
                             <tr>
-                                <td><h6>{{$heading->name}}</h6></td>
-                                <td><h6>{{$heading->description}}</h6></td>
+                                <td class="text-center"><h6>{{$permiso->id}}</h6></td>
+                                <td class="text-center"><h6>{{$permiso->name}}</h6></td>
                                 <td class="text-center">
-                                    <a href="javascript:void(0)" class="btn btn-dark mtmobile btn-sm"  wire:click="Edit({{$heading->id}})" title="Edit">
+                                    <a href="javascript:void(0)" class="btn btn-dark mtmobile btn-sm"  wire:click="Edit({{$permiso->id}})" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm"  onclick="Confirm('{{$heading->id}}')"  title="Delete">
+                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm"  onclick="Confirm('{{$permiso->id}}')"  title="Delete">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
@@ -34,12 +34,12 @@
                              @endforeach
                         </tbody>
                     </table>
-                   {{$headings->links()}}
+                   {{$permisos->links()}}
                 </div>
             </div>
         </div>
     </div>
-    @include('livewire.heading.form')
+    @include('livewire.permisos.form')
 </div>
 
 <script>
@@ -48,18 +48,24 @@
             $('#theModal').modal('show');
         });
 
-         window.livewire.on('heading-added', msg=>{
+         window.livewire.on('permission-added', msg=>{
             $('#theModal').modal('hide');
         });
-        window.livewire.on('heading-update', msg=>{
+        window.livewire.on('permission-update', msg=>{
             $('#theModal').modal('hide');
+        });
+          window.livewire.on('hide-modal', msg=>{
+            $('#theModal').modal('hide');
+        });
+            window.livewire.on('permiso-deleted', msg=>{
+            //noty(msg)
         });
     });
 
       function Confirm(id){
         swal({
             title: 'Confirmar',
-            text: '¿Confirmas eliminar el rubro?',
+            text: '¿Confirmas eliminar el Permiso?',
             type: 'warning',
             showCancelButton: true,
             cancelButtonText: 'Cerrar',
@@ -70,7 +76,7 @@
         }).then(function(result){
            if (result.value) {
             window.livewire.emit('deleteRow', id)
-             swal("Rubro Eliminado!", "Rubro Eliminado Exitosamente", "success");
+            swal("Permiso Eliminado!", "Permiso Eliminado Exitosamente", "success");
            } 
         })
     }

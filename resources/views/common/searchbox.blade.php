@@ -7,17 +7,6 @@
 				</span>
 			</div>
 			<input type="text" wire:model="search" placeholder="Buscar" class="form-control">
-			<div>
-			<select wire:model="pagination" class="form-control  basic">
-				<option value="5" selected="selected">5</option>
-				<option value="10">10</option>
-				<option value="15">15</option>
-				<option value="25">25</option>
-				<option value="50">50</option>
-				<option value="100">100</option>
-			</select>
-		</div>
-
 		</div>
 	</div>
 	<div class="col-lg-4 col-md-4 col-sm-6">

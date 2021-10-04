@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\HeadingController;
+use App\Http\Livewire\RolesController;
+use App\Http\Livewire\PermisosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('rubros', HeadingController::class);
+Route::get('roles', RolesController::class);
+Route::get('permisos', PermisosController::class);

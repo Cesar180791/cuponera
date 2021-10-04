@@ -98,50 +98,6 @@ class HeadingSeeder extends Seeder
             'name'=>'juegos de mesa',
             'description' => 'Ofertas en vuelos y excursiones',
         ]);
-        Heading::create([
-            'name'=>'alpinismo',
-            'description' => 'Ofertas en vuelos y excursiones',
-        ]);
-        Heading::create([
-            'name'=>'alpinismo',
-            'description' => 'Ofertas en vuelos y excursiones',
-        ]);
-        Heading::create([
-            'name'=>'alpinismo',
-            'description' => 'Ofertas en vuelos y excursiones',
-        ]);
-        Heading::create([
-            'name'=>'alpinismo',
-            'description' => 'Ofertas en vuelos y excursiones',
-        ]);
-        Heading::create([
-            'name'=>'alpinismo',
-            'description' => 'Ofertas en vuelos y excursiones',
-        ]);
-        Heading::create([
-            'name'=>'alpinismo',
-            'description' => 'Ofertas en vuelos y excursiones',
-        ]);
-        Heading::create([
-            'name'=>'alpinismo',
-            'description' => 'Ofertas en vuelos y excursiones',
-        ]);
-        Heading::create([
-            'name'=>'alpinismo',
-            'description' => 'Ofertas en vuelos y excursiones',
-        ]);
-        Heading::create([
-            'name'=>'alpinismo',
-            'description' => 'Ofertas en vuelos y excursiones',
-        ]);
-        Heading::create([
-            'name'=>'alpinismo',
-            'description' => 'Ofertas en vuelos y excursiones',
-        ]);
-        Heading::create([
-            'name'=>'alpinismo',
-            'description' => 'Ofertas en vuelos y excursiones',
-        ]);
 
     }
 }
