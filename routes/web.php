@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\HeadingController;
 use App\Http\Livewire\RolesController;
 use App\Http\Livewire\PermisosController;
+use App\Http\Livewire\AsignarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('rubros', HeadingController::class);
 Route::get('roles', RolesController::class);
 Route::get('permisos', PermisosController::class);
+Route::get('asignar', AsignarController::class);
