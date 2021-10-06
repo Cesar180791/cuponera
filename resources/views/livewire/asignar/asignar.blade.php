@@ -16,8 +16,8 @@
                             @endforeach
                         </select>
                     </div>
-                    <buton wire:click.prevent="SyncAll()" type="button" class="btn btn-dark mbmobile inblock mr-5">Sincronizar Todos</buton>
-                    <buton onclick="Revocar()" type="button" class="btn btn-dark mbmobile mr-5">Revocar Todos</buton>
+                    <buton wire:click.prevent="SyncAll()" type="button" class="btn btn-success mbmobile inblock mr-5">Sincronizar Todos</buton>
+                    <buton onclick="Revocar()" type="button" class="btn btn-warning mbmobile mr-5">Revocar Todos</buton>
                 </div>
                 <div class="row mt-3">
                     <div class="col-sm-12">

@@ -13,7 +13,7 @@
 		<div class="input-group mb-4">
 			<ul class="tabs tab-pills">
 				<li style="list-style: none;">
-					<a href="javascript:void(0)" class="tabmenu btn text-white" style="background: #1B4F72;" data-toggle="modal" data-target="#theModal"><i class="fas fa-folder-plus"></i> Agregar</a>
+					<a href="javascript:void(0)" class="tabmenu btn text-white btn-success" data-toggle="modal" data-target="#theModal"><i class="fas fa-folder-plus"></i> Agregar</a>
                     </li>
                 </ul>
 	

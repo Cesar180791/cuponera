@@ -5,6 +5,7 @@ use App\Http\Livewire\HeadingController;
 use App\Http\Livewire\RolesController;
 use App\Http\Livewire\PermisosController;
 use App\Http\Livewire\AsignarController;
+use App\Http\Livewire\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,4 @@ Route::get('rubros', HeadingController::class);
 Route::get('roles', RolesController::class);
 Route::get('permisos', PermisosController::class);
 Route::get('asignar', AsignarController::class);
+Route::get('usuarios', UsersController::class);
