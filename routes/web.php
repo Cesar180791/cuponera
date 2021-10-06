@@ -23,10 +23,20 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth'])->group(function (){
+
+Route::group(['middleware' => ['role:Administrador']], function () {
+    Route::get('roles', RolesController::class);
+    Route::get('permisos', PermisosController::class);
+    Route::get('asignar', AsignarController::class);
+});
+
 Route::get('rubros', HeadingController::class);
-Route::get('roles', RolesController::class);
-Route::get('permisos', PermisosController::class);
-Route::get('asignar', AsignarController::class);
 Route::get('usuarios', UsersController::class);
+
+
+});
+
+

@@ -50,5 +50,6 @@
 }
 
 
+
 </style>
 @livewireStyles

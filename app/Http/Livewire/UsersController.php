@@ -6,6 +6,7 @@ use Livewire\Component;
 use Spatie\Permission\Models\Role;
 use Livewire\withPagination;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class UsersController extends Component
 {
@@ -107,8 +108,10 @@ public function Store(){
         'status'=> $this->status
     ]);
 
+    $user->syncRoles($this->profile);
+
     $this->resetUI();
-    $this->emit('user-add','Usuario Creado con exito');
+    $this->emit('user-add','Usuario Creado con exito')->send();
 }
 
 public function Update(){
@@ -156,7 +159,8 @@ public function Update(){
         'status'=> $this->status
     ]);
 
-     $this->resetUI();
+    $user->syncRoles($this->profile);
+    $this->resetUI();
     $this->emit('user-update','Usuario editado con exito');
 
 }
