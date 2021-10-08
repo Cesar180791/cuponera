@@ -16,21 +16,19 @@ class CompanySeeder extends Seeder
     {
          company::create([
             'nameCompanies'=>'Pizza Hut',
-            'nit' => '1217-180791-105-2',
-            'nrc'=> 121345,
-            'phone' => '22577777',
+            'codeCompany' => 'EMP202',
             'address' => 'San Salvador',
-            'commission' => 10,
-            'user_id' => 1
+            'phoneCompany' => '7520-8200',
+            'user_id' => 1,
+            'heading_id' => 2
         ]);
          company::create([
-            'nameCompanies'=>'Almacenes Siman',
-            'nit' => '1217-180791-105-2',
-            'nrc' => 136547,
-            'phone' => '22577777',
+          'nameCompanies'=>'Almacenes Siman',
+            'codeCompany' => 'EMP206',
             'address' => 'San Salvador',
-            'commission' => 10,
-            'user_id' => 2
+            'phoneCompany' => '7520-8280',
+            'user_id' => 2,
+            'heading_id' => 2
         ]);
     }
 }

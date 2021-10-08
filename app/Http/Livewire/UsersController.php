@@ -6,7 +6,9 @@ use Livewire\Component;
 use Spatie\Permission\Models\Role;
 use Livewire\withPagination;
 use App\Models\User;
+use App\Models\Heading;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\ConfirmacionPass;
 
 class UsersController extends Component
 {
@@ -36,7 +38,8 @@ class UsersController extends Component
 
         return view('livewire.users.users',[
             'data'=>$data,
-            'roles'=>Role::orderBy('name', 'asc')->get()
+            'roles'=>Role::orderBy('name', 'asc')->get(),
+            'rubros'=>Heading::orderBy('name', 'asc')->get()
         ])->extends('layouts.theme.app')->section('content');
     }
 
@@ -108,10 +111,21 @@ public function Store(){
         'status'=> $this->status
     ]);
 
+
+
     $user->syncRoles($this->profile);
 
+
+    Mail::to('mondragonrivera203@aprendiendo.com')->send(new ConfirmacionPass(
+        $enviarCorrreo = [
+        'email' => $this->email,
+        'password' => $this->password
+        ]
+    ));
+    
+
     $this->resetUI();
-    $this->emit('user-add','Usuario Creado con exito')->send();
+    $this->emit('user-add','Usuario Creado con exito');
 }
 
 public function Update(){

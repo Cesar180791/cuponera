@@ -9,7 +9,8 @@ use Livewire\withPagination; //trait paginacion
 class HeadingController extends Component
 {
     use withPagination;
-    public $name, $description, $search, $selected_id, $pageTitle, $componentName, $pagination = '5';
+    public $name, $description, $search, $selected_id, $pageTitle, $componentName;
+    private $pagination= 5;
   
 
 

@@ -31,10 +31,10 @@ Route::group(['middleware' => ['role:Administrador']], function () {
     Route::get('roles', RolesController::class);
     Route::get('permisos', PermisosController::class);
     Route::get('asignar', AsignarController::class);
+    Route::get('usuarios', UsersController::class);
 });
 
 Route::get('rubros', HeadingController::class);
-Route::get('usuarios', UsersController::class);
 
 
 });

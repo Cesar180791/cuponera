@@ -18,7 +18,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($headings as $heading)
+                            @foreach($headings as $heading) 
                             <tr>
                                 <td><h6>{{$heading->name}}</h6></td>
                                 <td><h6>{{$heading->description}}</h6></td>

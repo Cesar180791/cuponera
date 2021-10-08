@@ -19,7 +19,7 @@
                         </a>
                         <div class="tooltip"><span>Dashboard</span></div>
                     </li>
-
+                    @can('Rubros_Index')
                     <li class="menu menu-single">
                         <a href="{{ url('/rubros')}}" data-active="false" class="menu-toggle">
                             <div class="base-menu">
@@ -30,6 +30,8 @@
                         </a>
                         <div class="tooltip"><span>Rubros</span></div>
                     </li>
+                    @endcan
+                    @can('Roles_Index')
                      <li class="menu menu-single">
                         <a href="{{ url('/roles')}}" data-active="false" class="menu-toggle">
                             <div class="base-menu">
@@ -40,6 +42,8 @@
                         </a>
                         <div class="tooltip"><span>Roles</span></div>
                     </li>
+                    @endcan
+                    @can('Permisos_Index')
                      <li class="menu menu-single">
                         <a href="{{ url('/permisos')}}" data-active="false" class="menu-toggle">
                             <div class="base-menu">
@@ -50,6 +54,8 @@
                         </a>
                         <div class="tooltip"><span>Permisos</span></div>
                     </li>
+                    @endcan
+                    @can('Usuarios_Index')
                      <li class="menu menu-single">
                         <a href="{{ url('/usuarios')}}" data-active="false" class="menu-toggle">
                             <div class="base-menu">
@@ -60,6 +66,8 @@
                         </a>
                         <div class="tooltip"><span>Usuarios</span></div>
                     </li>
+                    @endcan
+                    @can('Asignar_Index')
                      <li class="menu menu-single">
                         <a href="{{ url('/asignar')}}" data-active="false" class="menu-toggle">
                             <div class="base-menu">
@@ -71,14 +79,9 @@
                         <div class="tooltip"><span>Asignar</span></div>
                     </li>
                 </ul>
+                @endcan
 
-                <div class="sidebar-bottom-actions">
-
-                    <div class="external-links">
-                        <a target="_blank" href="../../documentation/index.html" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                            <div class="tooltip"><span>Help</span></div>
-                        </a>
-                    </div>
+                <div class="sidebar-bottom-actions position-sticky">
     
                     <div class="dropdown user-profile-dropdown">
                         <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
