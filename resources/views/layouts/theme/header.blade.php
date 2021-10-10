@@ -23,5 +23,14 @@
                     </form>
                 </li>
             </ul>
+            <ul class="navbar-item flex-row">
+                <li class="nav-item align-self-center page-heading">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h3>{{auth()->user()->email}}</h3>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </header>
     </div>
