@@ -31,7 +31,11 @@ class UsersController extends Component
     public function render()
     {
         if(strlen($this->search) > 0)
-            $data = User::where('name', 'like', '%'.$this->search.'%')->select('*')->orderBy('name','asc')->paginate($this->pagination);
+            $data = User::where([
+                ['profile', '!=', 'Dependientes_Sucursal'],
+                ['profile', '!=', 'Empresa'],
+                ['name', 'like', '%'.$this->search.'%']
+            ])->select('*')->orderBy('name','asc')->paginate($this->pagination);
         else 
             $data = User::where('profile','=','Administrador')->orderBy('name','asc')->paginate($this->pagination);
 

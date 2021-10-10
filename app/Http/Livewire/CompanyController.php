@@ -38,14 +38,24 @@ class CompanyController extends Component
         if (strlen($this->search) > 0)
             $data = company::join('users as c','c.company_id','companies.id')
                             ->select('companies.*','c.*')
-                            ->where('companies.nameCompanies','like', '%' . $this->search . '%')
-                            ->orWhere('c.name','like', '%' . $this->search . '%')
-                            ->orWhere('companies.codeCompany','like', '%' . $this->search . '%')
+                            ->where([
+                                ['c.profile', '!=', 'Dependientes_Sucursal'],
+                                ['companies.nameCompanies','like', '%' . $this->search . '%']
+                            ])
+                            ->orWhere([
+                                ['c.profile', '!=', 'Dependientes_Sucursal'],
+                                ['c.name','like', '%' . $this->search . '%']
+                            ])
+                            ->orWhere([
+                                ['c.profile', '!=', 'Dependientes_Sucursal'],
+                                ['companies.codeCompany','like', '%' . $this->search . '%']
+                            ])
                             ->orderBy('companies.id','desc')
                             ->paginate($this->pagination);
         else
              $data = company::join('users as c','c.company_id','companies.id')
                             ->select('companies.*','c.*')
+                            ->where('c.profile', '!=', 'Dependientes_Sucursal')
                             ->orderBy('companies.id','desc')
                             ->paginate($this->pagination);
 
@@ -54,8 +64,6 @@ class CompanyController extends Component
             'roles'=>Role::where('name', '=', 'Empresa')->get(),
             'rubros'=>Heading::orderBy('name', 'asc')->get(),
             'companies'=>company::orderBy('nameCompanies', 'asc')->get(),
-
-         
         ])->extends('layouts.theme.app')
         ->section('content');
     }

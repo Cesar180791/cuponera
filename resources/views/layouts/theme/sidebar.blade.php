@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                         </a>
-                        <div class="tooltip"><span>Usuarios Administradores</span></div>
+                        <div class="tooltip"><span>Administradores Cuponera</span></div>
                     </li>
                     @endcan
                       @can('Companies_Index')
@@ -88,7 +88,7 @@
                                 </div>
                             </div>
                         </a>
-                        <div class="tooltip"><span>Administrador Empresas</span></div>
+                        <div class="tooltip"><span>Administradores de Empresas</span></div>
                     </li>
                     @endcan
                     @can('Asignar_Index')
