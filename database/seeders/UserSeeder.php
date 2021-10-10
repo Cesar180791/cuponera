@@ -15,24 +15,26 @@ class UserSeeder extends Seeder
     public function run()
     {
          User::create([
-            'name'=>'Cesar Fabricio',
-            'phone'=>'75208200',
+            'name'=>'Leo Fabricio',
+            'phone'=>'7520-8200',
             'address'=>'San Miguel',
-            'dui'=>'04488759-0',
+            'dui'=>'04488759-2',
             'email' => 'mj@gmail.com',
-            'profile'=>'Admin',
+            'profile'=>'Empresa',
             'status'=>'Active',
             'password'=>bcrypt('12345678'),
+            'company_id'=> 1,
         ]);
            User::create([
             'name'=>'Mateo Alessandro',
-            'phone'=>'75208700',
+            'phone'=>'7520-8700',
             'address'=>'San Miguel',
             'dui'=>'12345675-0',
             'email' => 'm@gmail.com',
-            'profile'=>'Admin',
+            'profile'=>'Empresa',
             'status'=>'Active',
             'password'=>bcrypt('12345678'),
+            'company_id'=> 2,
         ]);
     }
 }

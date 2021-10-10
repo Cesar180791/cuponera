@@ -22,9 +22,7 @@ class CreateTicketsTable extends Migration
             $table->date('limit');
             $table->integer('quantity')->nullable();
             $table->string('description');
-            $table->foreignId('user_id')->constrained();
             $table->foreignId('company_id')->constrained();
-            $table->foreignId('heading_id')->constrained();
             $table->timestamps();
         });
     }

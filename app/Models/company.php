@@ -10,15 +10,11 @@ class company extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'nit',
-        'nrc',
-        'phone',
+        'nameCompanies',
+        'codeCompany',
         'address',
-        'nameAdmin',
-        'password',
-        'email',
-        'commission',
-        'user_id'
+        'phoneCompany',
+        'heading_id'
     ];
+    
 }

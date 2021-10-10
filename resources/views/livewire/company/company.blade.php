@@ -6,31 +6,32 @@
                     <b style="font-size: 18px;">{{$componentName}} | {{$pageTitle}}</b>
                 </h4>
             </div>
-             @include('common.searchbox')
+             @include('livewire.company.searchButon')
+
             <div class="widget-content">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped mt-1">
                         <thead class="text-white" style="background: #1B4F72;">
                             <tr>
-                                <th class="table-th text-white text-center">Nombre</th>
-                                <th class="table-th text-white text-center">Telefono</th>
+                                <th class="table-th text-white text-center">Empresa</th>
                                 <th class="table-th text-white text-center">Correo</th>
-                                <th class="table-th text-white text-center">Dui</th>
-                                <th class="table-th text-white text-center">Estado</th>
-                                <th class="table-th text-white text-center">Rol</th>
+                                <th class="table-th text-white text-center">Admin Empresa</th>
+                                <th class="table-th text-white text-center">Tele. Admin</th>
+                                <th class="table-th text-white text-center">Tele. Empresa</th>
+                                 <th class="table-th text-white text-center">COD</th>
+                                 <th class="table-th text-white text-center">Rol</th>
                                 <th class="table-th text-white text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($data as $r)
                             <tr>
+                                <td class="text-center"><h6>{{$r->nameCompanies}}</h6></td>
+                                <td class="text-center"><h6>{{$r->email}}</h6></td>
                                 <td class="text-center"><h6>{{$r->name}}</h6></td>
                                 <td class="text-center"><h6>{{$r->phone}}</h6></td>
-                                <td class="text-center"><h6>{{$r->email}}</h6></td>
-                                <td class="text-center"><h6>{{$r->dui}}</h6></td>
-                                <td class="text-center">
-                                    <span class="badge {{$r->status == 'Active' ? 'badge-success' : 'badge-danger'}} text-uppercase">{{$r->status}}</span>
-                                </td>
+                                <td class="text-center"><h6>{{$r->phoneCompany}}</h6></td>
+                                <td class="text-center"><h6>{{$r->codeCompany}}</h6></td>
                                 <td><h6 class="text-center">{{$r->profile}}</h6></td>
                                 <td class="text-center">
                                     <a href="javascript:void(0)" class="btn btn-success mtmobile btn-sm" title="View">
@@ -52,13 +53,14 @@
             </div>
         </div>
     </div>
-     @include('livewire.users.form')
+    @include('livewire.company.form')
+    @include('livewire.company.formCompany')
 </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function(){
-         window.livewire.on('user-add', msg=>{
-             $('#theModal').modal('hide');
+         window.livewire.on('company-add', msg=>{
+             $('#theModalB').modal('hide');
         swal({
             title: 'Exito',
             text: msg,
@@ -66,11 +68,28 @@
         })
 
         });
-        window.livewire.on('user-update', msg=>{
+        window.livewire.on('userCompany-add', msg=>{
             $('#theModal').modal('hide');
+        swal({
+            title: 'Exito',
+            text: msg,
+            type: 'success',
+        })
         });
-          window.livewire.on('user-deleted', msg=>{
+        window.livewire.on('userCompany-update', msg=>{
             $('#theModal').modal('hide');
+        swal({
+            title: 'Exito',
+            text: msg,
+            type: 'success',
+        })
+        });
+          window.livewire.on('userAdmin-deleted', msg=>{
+            swal({
+            title: 'Exito',
+            text: msg,
+            type: 'success',
+        })
         });
             window.livewire.on('hide-modal', msg=>{
             $('#theModal').modal('hide');
@@ -98,7 +117,6 @@
         }).then(function(result){
            if (result.value) {
             window.livewire.emit('deleteRows', id)
-             swal("usuario Eliminado!", "usuario Eliminado Exitosamente", "success");
            } 
         })
     }

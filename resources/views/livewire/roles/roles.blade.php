@@ -57,9 +57,20 @@
           window.livewire.on('hide-modal', msg=>{
             $('#theModal').modal('hide');
         });
-            window.livewire.on('role-deleted', msg=>{
-            //noty(msg)
-        });
+        window.livewire.on('role-deleted', msg=>{
+          swal({
+            title: 'Exito',
+            text: msg,
+            type: 'success',
+        })        
+      });
+        window.livewire.on('role-error', msg=>{
+          swal({
+            title: 'Cuidado',
+            text: msg,
+            type: 'warning',
+        })        
+      });
     });
 
       function Confirm(id){
@@ -76,7 +87,6 @@
         }).then(function(result){
            if (result.value) {
             window.livewire.emit('deleteRow', id)
-            swal("Rol Eliminado!", "Rol Eliminado Exitosamente", "success");
            } 
         })
     }

@@ -19,7 +19,6 @@ class CreateCompaniesTable extends Migration
             $table->string('codeCompany')->unique();
             $table->string('address',255);
             $table->string('phoneCompany',10)->unique();
-            $table->foreignId('user_id')->constrained();  
             $table->foreignId('heading_id')->constrained();   
             $table->timestamps();
         });

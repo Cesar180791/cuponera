@@ -12,7 +12,7 @@
 			</div>
 			<input type="text" wire:model.lazy="name" class="form-control" placeholder="Ingrese Nombre del rubro">
 		</div>
-		@error('name') <span class="text-danger er">{{ $message }}</span> @enderror
+		@error('name') <span class="text-danger er">{{ $message }}</span> @enderror 
 	</div>
 	<div class="col-sm-12 col-md-6 mt-3">
 		<label>Telefono</label>
@@ -103,64 +103,15 @@
 			</div>
 			<select wire:model.lazy="profile" class="form-control">
 				<option value="Seleccionar" selected>Seleccionar</option>
-				@foreach($roles as $role)
-				<option value="{{$role->name}}" selected>{{$role->name}}</option>
+				@foreach($roles as $rol)
+				<option value="{{$rol->name}}">{{$rol->name}}</option>
 				@endforeach
 			</select>
 		</div>
 		@error('profile') <span class="text-danger er">{{ $message }}</span> @enderror
 	</div>
-<!--
-	 @if($profile == 'Empresa')
-
-	  <div class="card card-header col-sm-12 col-md-12 mt-3" style="background: #1B4F72;">
-		<label class="text-white"><strong>Datos de la Empresa</strong></label>
-	</div>
-
-	 	<div class="col-sm-12 col-md-6 mt-3">
-		<label>Nombre Empresa</label>
-		<div class="input-group">
-			<div class="input-group-prepend">
-				<span class="input-group-text">
-					<span class="fas fa-edit">
-
-					</span>
-				</span>
-			</div>
-			<input type="text" wire:model.lazy="nameCompanies" class="form-control" placeholder="Ingrese Nombre del rubro">
-		</div>
-		@error('nameCompanies') <span class="text-danger er">{{ $message }}</span> @enderror
-	</div>
-	 <div class="col-sm-12 col-md-6 mt-3">
-		<label>Direccion Empresa</label>
-		<div class="input-group">
-			<div class="input-group-prepend">
-				<span class="input-group-text">
-					<span class="fas fa-edit">
-
-					</span>
-				</span>
-			</div>
-			<input type="text" wire:model.lazy="addressCompany" class="form-control" placeholder="Ingrese Nombre del rubro">
-		</div>
-		@error('addressCompany') <span class="text-danger er">{{ $message }}</span> @enderror
-	</div>
-	 <div class="col-sm-12 col-md-6 mt-3">
-		<label>Telefono Empresa</label>
-		<div class="input-group">
-			<div class="input-group-prepend">
-				<span class="input-group-text">
-					<span class="fas fa-edit">
-
-					</span>
-				</span>
-			</div>
-			<input type="text" wire:model.lazy="phoneCompany" class="form-control" placeholder="Ingrese Nombre del rubro">
-		</div>
-		@error('phoneCompany') <span class="text-danger er">{{ $message }}</span> @enderror
-	</div>
 		<div class="col-sm-12 col-md-6 mt-3">
-			<label>Rubro</label>
+			<label>Asignar Empresa</label>
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text">
@@ -169,17 +120,15 @@
 					</span>
 				</span>
 			</div>
-			<select wire:model.lazy="heading_id" class="form-control">
+			<select wire:model.lazy="company_id" class="form-control">
 				<option value="Seleccionar" selected>Seleccionar</option>
-				@foreach($rubros as $rubro)
-				<option value="{{$rubro->id}}" selected>{{$rubro->name}}</option>
+				@foreach($companies as $company)
+				<option value="{{$company->id}}" selected>{{$company->nameCompanies}}</option>
 				@endforeach
 			</select>
 		</div>
-		@error('heading_id') <span class="text-danger er">{{ $message }}</span> @enderror
+		@error('company_id') <span class="text-danger er">{{ $message }}</span> @enderror
 	</div>
-	@endif
--->
 
 </div>
 @include('common.modalFooter')

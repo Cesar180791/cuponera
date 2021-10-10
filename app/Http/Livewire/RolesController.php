@@ -94,7 +94,7 @@ class RolesController extends Component
          return;
         }
         Role::find($id)->delete();
-         $this->emit('role-deleted', 'Rol deleted');
+         $this->emit('role-deleted', 'Rol Eliminado con exito');
     }
 
       public function resetUI(){

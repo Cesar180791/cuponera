@@ -14,12 +14,12 @@ class UsersController extends Component
 {
     use withPagination;
 
-    public $name , $phone,$address, $dui, $email, $status, $password, $selected_id,$fileLoaded, $profile, $pageTitle, $componentName, $search;
+    public $name , $phone,$address, $dui, $email, $status, $password, $selected_id,$fileLoaded, $profile='Administrador', $pageTitle, $componentName, $search;
     private $pagination = 10;
 
      public function mount(){
         $this->pageTitle = 'Lista';
-        $this->componentName = 'Usuarios del Sistema';
+        $this->componentName = 'Administradores Cuponera';
         $this->status = 'Seleccionar';
     }
 
@@ -33,12 +33,12 @@ class UsersController extends Component
         if(strlen($this->search) > 0)
             $data = User::where('name', 'like', '%'.$this->search.'%')->select('*')->orderBy('name','asc')->paginate($this->pagination);
         else 
-            $data = User::select('*')->orderBy('name','asc')->paginate($this->pagination);
+            $data = User::where('profile','=','Administrador')->orderBy('name','asc')->paginate($this->pagination);
 
 
         return view('livewire.users.users',[
             'data'=>$data,
-            'roles'=>Role::orderBy('name', 'asc')->get(),
+            'roles'=>Role::where('name', '=', 'Administrador')->get(),
             'rubros'=>Heading::orderBy('name', 'asc')->get()
         ])->extends('layouts.theme.app')->section('content');
     }
@@ -53,8 +53,6 @@ class UsersController extends Component
         $this->email = $user->email;
         $this->status = $user->status;
         $this->profile = $this->profile;
-      
-
         $this->emit('show-modal', 'show modal!'); 
     }
 
@@ -66,8 +64,7 @@ public $listeners =[
 
 
 public function Store(){
-
-    $rules=[
+         $rules=[
         'name'=>'required|min:3',
         'phone' => 'required|unique:users|min:9',
         'address' => 'required|min:10',
@@ -75,6 +72,7 @@ public function Store(){
         'email' => 'required|email|unique:users',
         'status' => 'required|not_in:Seleccionar',
         'profile' => 'required|not_in:Seleccionar',
+      
 
     ];
 
@@ -95,7 +93,7 @@ public function Store(){
         'status.required' =>'Selecciona un estado para el usuario',
         'status.not_in' =>'Selecciona un Estatus Valido',
         'profile.required' =>'Selecciona un rol para el usuario',
-        'profile.not_in' =>'Selecciona un rol Valido'
+        'profile.not_in' =>'Selecciona un rol Valido',
     ];
 
     $this->validate($rules, $messages);
@@ -116,7 +114,7 @@ public function Store(){
     $user->syncRoles($this->profile);
 
 
-    Mail::to('mondragonrivera203@aprendiendo.com')->send(new ConfirmacionPass(
+    Mail::to("$this->email")->send(new ConfirmacionPass(
         $enviarCorrreo = [
         'email' => $this->email,
         'password' => $this->password
@@ -126,7 +124,10 @@ public function Store(){
 
     $this->resetUI();
     $this->emit('user-add','Usuario Creado con exito');
+
+    
 }
+
 
 public function Update(){
         $rules=[
