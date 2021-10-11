@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Permission; 
 use Spatie\Permission\Models\Role;
 use Livewire\withPagination;
 use DB;

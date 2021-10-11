@@ -21,7 +21,8 @@
 
  <script src="{{ asset('plugins/sweetalerts/sweetalert2.min.js') }}"></script>
  <script src="{{ asset('plugins/notification/snackbar/snackbar.min.js') }}"></script>
-  <script src="{{ asset('plugins/currency/currency.min.js') }}"></script>
+ <script src="{{ asset('plugins/currency/currency.min.js') }}"></script>
+ <script src="{{ asset('plugins/flatpickr/flatpickr.js') }}"></script>
 
  <script>
 

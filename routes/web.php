@@ -8,7 +8,8 @@ use App\Http\Livewire\AsignarController;
 use App\Http\Livewire\UsersController;
 use App\Http\Livewire\CompanyController;
 use App\Http\Livewire\EditCompanyController;
-use App\Http\Livewire\BranchManagerController;   
+use App\Http\Livewire\BranchManagerController; 
+use App\Http\Livewire\CouponCreatorController;     
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,7 @@ Route::group(['middleware' => ['role:Administrador']], function () {
 
 Route::group(['middleware' => ['role:Empresa']], function () {
     Route::get('dependientes-sucursal', BranchManagerController::class);
+    Route::get('creador-cupon', CouponCreatorController::class);
 });
 
 

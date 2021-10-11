@@ -13,7 +13,7 @@
 		<div class="input-group mb-4">
 			<ul class="tabs tab-pills">
 				<li style="list-style: none;">
-					<a href="javascript:void(0)" class="tabmenu btn text-white btn-success" data-toggle="modal" data-target="#theModal"><i class="fas fa-user-tie"></i> Asignar Dependiente</a>
+					<a href="javascript:void(0)" class="tabmenu btn text-white btn-success btn-rounded" data-toggle="modal" data-target="#theModal"><i class="fas fa-user-tie"></i> Asignar Dependiente</a>
                     </li>
           
                 </ul>
