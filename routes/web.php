@@ -10,7 +10,7 @@ use App\Http\Livewire\CompanyController;
 use App\Http\Livewire\EditCompanyController;
 use App\Http\Livewire\BranchManagerController; 
 use App\Http\Livewire\CouponCreatorController;     
-
+use App\Http\Livewire\ViewCouponCompanyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +44,7 @@ Route::middleware(['auth'])->group(function (){
 /*Route::group(['middleware' => ['role:Empresa']], function () {*/
     Route::get('dependientes-sucursal', BranchManagerController::class);
     Route::get('creador-cupon', CouponCreatorController::class);
+    Route::get('ver-cupon', ViewCouponCompanyController::class);
 /*});*/
 
 
