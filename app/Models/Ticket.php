@@ -9,16 +9,26 @@ class Ticket extends Model
 {
     use HasFactory;
     protected $fillable=[
-        "name",
-        "price",
-        "begin",
-        "ending",
-        "limit",
-        "quantity",
-        "description",
-        "company_id",
-        "user_id",
-        'heading_id'
+        'name',
+        'price',
+        'beging',
+        'ending',
+        'limit',
+        'quantity',
+        'description',
+        'statusTicket',
+        'image',
+        'company_id'
     ];
+
+      /*Accesor para recuperar la imagen, y poner una por defecto*/
+    public function getImagenAttribute($image){
+        if ($this->image == null)
+            return 'noimg.png';
+        if (file_exists('storage/cupon/'.$this->image)) 
+               return $this->image;
+        else
+            return 'noimg.jpg';
+    }
 
 }

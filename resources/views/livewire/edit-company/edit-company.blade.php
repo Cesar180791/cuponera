@@ -1,3 +1,4 @@
+<div>
 <div class="row sales layout-top-spacing">
     <div class="col-sm-12">
         <div class="widget widget-chart-one">
@@ -14,6 +15,7 @@
                             <tr>
                                 <th class="table-th text-white">Nombre Empresa</th>
                                 <th class="table-th text-white">COD Empresa</th>
+                                <th class="table-th text-white">Comision</th>
                                 <th class="table-th text-white">Direccion</th>
                                 <th class="table-th text-white">Telefono</th>
                                 <th class="table-th text-white">Rubro</th>
@@ -25,6 +27,7 @@
                             <tr>
                                 <td><h6>{{$company->nameCompanies}}</h6></td>
                                 <td><h6>{{$company->codeCompany}}</h6></td>
+                                <td><h6>{{$company->comision}}%</h6></td>
                                 <td><h6>{{$company->address}}</h6></td>
                                 <td><h6>{{$company->phoneCompany}}</h6></td>
                                 <td><h6>{{$company->heading}}</h6></td>
@@ -46,6 +49,7 @@
         </div>
     </div>
 @include('livewire.edit-company.formCompany')
+</div>
 </div>
 
 <script>

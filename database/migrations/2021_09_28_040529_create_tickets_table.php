@@ -22,6 +22,13 @@ class CreateTicketsTable extends Migration
             $table->date('limit');
             $table->integer('quantity')->nullable();
             $table->string('description');
+            $table->enum('statusTicket',[
+                'En espera de Aprobacion',
+                'Oferta Aprobada',
+                'Oferta Rechazada',
+                'Oferta Descartada'
+            ])->default('En espera de Aprobacion');
+            $table->string('image',100)->nullable(); 
             $table->foreignId('company_id')->constrained();
             $table->timestamps();
         });

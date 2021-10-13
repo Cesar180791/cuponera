@@ -14,6 +14,7 @@ class company extends Model
         'codeCompany',
         'address',
         'phoneCompany',
+        'comision',
         'heading_id'
     ];
     

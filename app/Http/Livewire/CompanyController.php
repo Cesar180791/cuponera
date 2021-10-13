@@ -15,7 +15,7 @@ class CompanyController extends Component
 { 
      use withPagination;
       public $name , $phone,$address, $dui, $email, $status, $password, $selected_id, $profile, $pageTitle, 
-      $componentName, $search, $nameCompanies, $addressCompany, $phoneCompany, $heading_id,$company_id;
+      $componentName, $search, $nameCompanies, $addressCompany, $phoneCompany, $heading_id,$company_id, $comision;
 
     private $pagination = 10;
     
@@ -76,6 +76,7 @@ class CompanyController extends Component
         'addressCompany' => 'required|min:10',
         'phoneCompany'=>'required|min:9|unique:companies',
         'heading_id' => 'required|not_in:Seleccionar',
+         'comision' => 'required'
     ];
 
     $messages =[
@@ -88,7 +89,8 @@ class CompanyController extends Component
         'phoneCompany.min'=>'El telefono de la empresa debe tener al menos 10 Caracteres',
         'phoneCompany.unique'=>'El telefono ingresado ya esta asociado a otra empresa',
         'heading_id.required' => 'Selecciona un rubro para la empresa',
-        'heading_id.not_in' => 'Selecciona un rubro valido'
+        'heading_id.not_in' => 'Selecciona un rubro valido',
+        'comision.required' => 'Ingrese comision a cobrar'
     ];
 
     $this->validate($rules, $messages);
@@ -99,6 +101,7 @@ class CompanyController extends Component
         'codeCompany'=>'EMP'.rand(0,9).rand(0,9).rand(0,9),
         'address' => $this->addressCompany,
         'phoneCompany' => $this->phoneCompany,
+        'comision' => $this->comision,
         'heading_id' => $this->heading_id
 
     ]);
@@ -169,7 +172,8 @@ class CompanyController extends Component
     Mail::to("$this->email")->send(new ConfirmacionPass(
         $enviarCorrreo = [
         'email' => $this->email,
-        'password' => $this->password
+        'password' => $this->password,
+        'name' => $this->name
         ]
     ));
     

@@ -1,3 +1,4 @@
+<div>
 <div class="row sales layout-top-spacing">
     <div class="col-sm-12">
         <div class="widget widget-chart-one">
@@ -55,6 +56,7 @@
     </div>
     @include('livewire.company.form')
     @include('livewire.company.formCompany')
+</div>
 </div>
 
 <script>

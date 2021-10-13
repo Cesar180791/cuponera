@@ -9,8 +9,10 @@ class TicketWallet extends Model
 {
     use HasFactory;
     protected $fillable =[
-        'costumer_id',
+        'user_id',
         'ticked_id',
-        'quantity'
+        'statusTicketWallet',
+        'quantity',
+        'codeCupon'
     ];
 }

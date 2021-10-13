@@ -23,6 +23,20 @@
 		</div>
 		@error('nameCompanies') <span class="text-danger er">{{ $message }}</span> @enderror
 	</div>
+		 	<div class="col-sm-12 col-md-6 mt-3">
+		<label>Comision</label>
+		<div class="input-group"> 
+			<div class="input-group-prepend">
+				<span class="input-group-text">
+					<span class="fas fa-edit">
+
+					</span>
+				</span>
+			</div>
+			<input type="text" wire:model.lazy="comision" class="form-control" placeholder="Ingrese Nombre del rubro">
+		</div>
+		@error('comision') <span class="text-danger er">{{ $message }}</span> @enderror
+	</div>
 	 <div class="col-sm-12 col-md-6 mt-3">
 		<label>Direccion Empresa</label>
 		<div class="input-group">

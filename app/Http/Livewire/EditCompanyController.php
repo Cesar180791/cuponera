@@ -12,7 +12,7 @@ class EditCompanyController extends Component
 {
     use withPagination;
 
-    public $selected_id, $profile='Empresa', $pageTitle, $componentName, $search, $nameCompanies, $addressCompany, $phoneCompany, $heading_id;
+    public $selected_id, $profile='Empresa', $pageTitle, $componentName, $search, $nameCompanies, $addressCompany, $phoneCompany, $heading_id, $comision;
 
     private $pagination = 10;
 
@@ -57,6 +57,7 @@ class EditCompanyController extends Component
         'addressCompany' => 'required|min:10',
         'phoneCompany'=>'required|min:9|unique:companies',
         'heading_id' => 'required|not_in:Seleccionar',
+        'comision' => 'required',
     ];
 
     $messages =[
@@ -69,7 +70,8 @@ class EditCompanyController extends Component
         'phoneCompany.min'=>'El telefono de la empresa debe tener al menos 10 Caracteres',
         'phoneCompany.unique'=>'El telefono ingresado ya esta asociado a otra empresa',
         'heading_id.required' => 'Selecciona un rubro para la empresa',
-        'heading_id.not_in' => 'Selecciona un rubro valido'
+        'heading_id.not_in' => 'Selecciona un rubro valido',
+        'comision.required' => 'Ingrese comision a cobrar'
     ];
 
     $this->validate($rules, $messages);
@@ -80,6 +82,7 @@ class EditCompanyController extends Component
         'codeCompany'=>'EMP'.rand(0,9).rand(0,9).rand(0,9),
         'address' => $this->addressCompany,
         'phoneCompany' => $this->phoneCompany,
+        'comision' => $this->comision,
         'heading_id' => $this->heading_id
 
     ]);
@@ -93,6 +96,7 @@ class EditCompanyController extends Component
         $this->selected_id = $company->id;
         $this->nameCompanies = $company->nameCompanies;
         $this->phoneCompany = $company->phoneCompany;
+        $this->comision = $company->comision;
         $this->addressCompany = $company->address;
         $this->heading_id = $company->heading_id;
         $this->emit('show-modal', 'show modal!');
@@ -106,6 +110,7 @@ class EditCompanyController extends Component
         'addressCompany' => 'required|min:10',
         'phoneCompany'=>"required|min:9|unique:companies,phoneCompany,{$this->selected_id}",
         'heading_id' => 'required|not_in:Seleccionar',
+        'comision' => 'required',
 
     ];
 
@@ -119,7 +124,8 @@ class EditCompanyController extends Component
         'phoneCompany.min'=>'El telefono de la empresa debe tener al menos 10 Caracteres',
         'phoneCompany.unique'=>'El telefono ingresado ya esta asociado a otra empresa',
         'heading_id.required' => 'Selecciona un rubro para la empresa',
-        'heading_id.not_in' => 'Selecciona un rubro valido'
+        'heading_id.not_in' => 'Selecciona un rubro valido',
+        'comision.required' => 'Ingrese comision a cobrar'
     ];
 
     $this->validate($rules, $messages);
@@ -129,6 +135,7 @@ class EditCompanyController extends Component
         'nameCompanies' => $this->nameCompanies,
         'address' => $this->addressCompany,
         'phoneCompany' => $this->phoneCompany,
+        'comision' => $this->comision,
         'heading_id' => $this->heading_id
 
     ]);
@@ -158,6 +165,7 @@ public function Destroy(company $company){
        $this->phoneCompany = '';
        $this->heading_id = 0;
        $this->search='';
+       $this->comision='';
        $this->selected_id = 0;
        $this->resetValidation();
        $this->resetPage();

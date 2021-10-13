@@ -120,7 +120,8 @@ class BranchManagerController extends Component
     Mail::to("$this->email")->send(new ConfirmacionPass(
         $enviarCorrreo = [
         'email' => $this->email,
-        'password' => $this->password
+        'password' => $this->password,
+        'name' => $this->name
         ]
     ));
     

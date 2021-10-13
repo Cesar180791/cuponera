@@ -19,6 +19,7 @@ class CompanySeeder extends Seeder
             'codeCompany' => 'EMP202',
             'address' => 'San Salvador',
             'phoneCompany' => '7520-8200',
+            'comision'=>10,
             'heading_id' => 2
         ]);
          company::create([
@@ -26,6 +27,7 @@ class CompanySeeder extends Seeder
             'codeCompany' => 'EMP206',
             'address' => 'San Salvador',
             'phoneCompany' => '7520-8280',
+            'comision'=>10,
             'heading_id' => 2
         ]);
     }

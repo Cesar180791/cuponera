@@ -1,3 +1,4 @@
+<div>
 <div class="row sales layout-top-spacing">
     <div class="col-sm-12">
         <div class="widget widget-chart-one">
@@ -41,7 +42,7 @@
     </div>
     @include('livewire.heading.form')
 </div>
-
+</div>
 <script>
     document.addEventListener('DOMContentLoaded', function(){
         window.livewire.on('show-modal', msg=>{
