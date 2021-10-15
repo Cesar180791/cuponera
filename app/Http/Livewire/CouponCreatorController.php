@@ -58,12 +58,14 @@ class CouponCreatorController extends Component
     $ticket = Ticket::create([
         'name' => $this->titulo,
         'price' => $this->precioRegular,
+        'promotion'=>$this->PrecioOferta,
         'beging' => $this->fechaInicio,
         'ending' => $this->fechaFinal,
         'limit' => $this->fechaLimiteCanje,
         'quantity' => $this->cantidadCupon,
         'description' => $this->descripcion,
         'statusTicket'=> 'En Espera de Aprobacion',
+        'details'=> $this->otrosDetalles,
         'company_id' => auth()->user()->company_id 
     ]);
 

@@ -17,6 +17,7 @@ class CreateTicketsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('price');
+            $table->integer('promotion');
             $table->date('beging');
             $table->date('ending');
             $table->date('limit');
@@ -28,6 +29,8 @@ class CreateTicketsTable extends Migration
                 'Oferta Rechazada',
                 'Oferta Descartada'
             ])->default('En espera de Aprobacion');
+            $table->string('details',250)->nullable(); 
+            $table->string('reason',250)->nullable(); 
             $table->string('image',100)->nullable(); 
             $table->foreignId('company_id')->constrained();
             $table->timestamps();

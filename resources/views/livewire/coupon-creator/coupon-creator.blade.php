@@ -259,7 +259,7 @@
     </style>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+          document.addEventListener('DOMContentLoaded', function () {
             window.livewire.on('ticket-add', msg => {
                 swal({
                     title: 'Exito',
@@ -267,7 +267,6 @@
                     type: 'success',
                 })
             });
-
 
             flatpickr(document.getElementsByClassName('flatpickr'), {
                 enabledTime: false,
