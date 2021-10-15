@@ -36,13 +36,14 @@
                                 <b style="font-size: 18px;">{{$componentName1}} | {{$pageTitle}}</b>
                             </h4>
                         </div>
-                        @include('livewire.view-coupon-company.searchboxEspera')
+                        @include('livewire.view-ticket-admin.searchboxEspera')
                         <div class="widget-content">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped mt-1">
                                     <thead class="text-white" style="background: #1B4F72;">
                                         <tr>
                                             <th class="table-th text-white text-center">ID</th>
+                                            <th class="table-th text-white text-center">Empresa</th>
                                             <th class="table-th text-white text-center">Nombre de la Oferta</th>
                                             <th class="table-th text-white text-center">Fecha de Inicio</th>
                                             <th class="table-th text-white text-center">Fecha Final de Compra</th>
@@ -57,6 +58,9 @@
                                                 <h6 class="text-center">{{$cuponE->id}}</h6>
                                             </td>
                                             <td>
+                                                <h6 class="text-center">{{$cuponE->nameCompanies}}</h6>
+                                            </td>
+                                            <td>
                                                 <h6 class="text-center">{{$cuponE->name}}</h6>
                                             </td>
                                             <td>
@@ -69,15 +73,13 @@
                                                 <h6 class="text-center">{{$cuponE->limit}}</h6>
                                             </td>
                                             <td class="text-center">
-                                                <a href="javascript:void(0)" class="btn btn-success btn-sm"
-                                                    wire:click="showCoupon({{$cuponE->id}})" title="view">
+                                                <a href="javascript:void(0)"  wire:click="changeState({{$cuponE->id}})"
+                                                    class="btn btn-success btn-sm" title="view"> 
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                         viewBox="0 0 24 24" stroke="currentColor">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
                                                             stroke-width="2"
-                                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                     </svg>
                                                 </a>
                                                 <a href="javascript:void(0)" class="btn btn-success btn-sm"
@@ -117,7 +119,7 @@
                                 <b style="font-size: 18px;">{{$componentName2}} | {{$pageTitle}}</b>
                             </h4>
                         </div>
-                        @include('livewire.view-coupon-company.searchboxAprobados')
+                        @include('livewire.view-ticket-admin.searchboxAprobados')
                         <div class="widget-content">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped mt-1">
@@ -150,17 +152,6 @@
                                                 <h6 class="text-center">{{$cuponA->limit}}</h6>
                                             </td>
                                             <td class="text-center">
-                                                <a href="javascript:void(0)" class="btn btn-success btn-sm"
-                                                    wire:click="showCoupon({{$cuponA->id}})" title="view">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                        viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                    </svg>
-                                                </a>
                                                 <a href="javascript:void(0)" class="btn btn-success btn-sm"
                                                     wire:click="showView({{$cuponA->id}})" title="view">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
@@ -202,7 +193,7 @@
                                 <b style="font-size: 18px;">{{$componentName5}} | {{$pageTitle}}</b>
                             </h4>
                         </div>
-                        @include('livewire.view-coupon-company.searchboxFuturas')
+                        @include('livewire.view-ticket-admin.searchboxFuturas')
                         <div class="widget-content">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped mt-1">
@@ -235,17 +226,6 @@
                                                 <h6 class="text-center">{{$cuponF->limit}}</h6>
                                             </td>
                                             <td class="text-center">
-                                                <a href="javascript:void(0)" class="btn btn-success btn-sm"
-                                                    wire:click="showCoupon({{$cuponF->id}})" title="view">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                        viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                    </svg>
-                                                </a>
                                                 <a href="javascript:void(0)" class="btn btn-success btn-sm"
                                                     wire:click="showView({{$cuponF->id}})" title="view">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
@@ -284,7 +264,7 @@
                                 <b style="font-size: 18px;">{{$componentName6}} | {{$pageTitle}}</b>
                             </h4>
                         </div>
-                        @include('livewire.view-coupon-company.searchboxPasadas')
+                        @include('livewire.view-ticket-admin.searchboxPasadas')
                         <div class="widget-content">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped mt-1">
@@ -317,17 +297,6 @@
                                                 <h6 class="text-center">{{$cuponP->limit}}</h6>
                                             </td>
                                             <td class="text-center">
-                                                <a href="javascript:void(0)" class="btn btn-success btn-sm"
-                                                    wire:click="showCoupon({{$cuponP->id}})" title="view">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                        viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                    </svg>
-                                                </a>
                                                 <a href="javascript:void(0)" class="btn btn-success btn-sm"
                                                     wire:click="showView({{$cuponP->id}})" title="view">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
@@ -371,7 +340,7 @@
                                 <b style="font-size: 18px;">{{$componentName3}} | {{$pageTitle}}</b>
                             </h4>
                         </div>
-                        @include('livewire.view-coupon-company.searchboxRechazado')
+                        @include('livewire.view-ticket-admin.searchboxRechazado')
                         <div class="widget-content">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped mt-1">
@@ -405,15 +374,6 @@
                                             </td>
                                             <td class="text-center">
                                                 <a href="javascript:void(0)" class="btn btn-success btn-sm"
-                                                    wire:click="Edit({{$cuponR->id}})" title="view">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                        viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                                    </svg>
-                                                </a>
-                                                   <a href="javascript:void(0)" class="btn btn-success btn-sm"
                                                     wire:click="showView({{$cuponR->id}})" title="view">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                         viewBox="0 0 24 24" stroke="currentColor">
@@ -452,7 +412,7 @@
                                 <b style="font-size: 18px;">{{$componentName4}} | {{$pageTitle}}</b>
                             </h4>
                         </div>
-                        @include('livewire.view-coupon-company.searchboxDescartado')
+                        @include('livewire.view-ticket-admin.searchboxDescartado')
                         <div class="widget-content">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped mt-1">
@@ -486,17 +446,6 @@
                                             </td>
                                             <td class="text-center">
                                                 <a href="javascript:void(0)" class="btn btn-success btn-sm"
-                                                    wire:click="showCoupon({{$cuponD->id}})" title="view">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                        viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                    </svg>
-                                                </a>
-                                                <a href="javascript:void(0)" class="btn btn-success btn-sm"
                                                     wire:click="showView({{$cuponD->id}})" title="view">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                         viewBox="0 0 24 24" stroke="currentColor">
@@ -523,9 +472,8 @@
 
 
         </div>
-        @include('livewire.view-coupon-company.form')
-        @include('livewire.view-coupon-company.form2')
-        @include('livewire.view-coupon-company.formEdicion')
+        @include('livewire.view-ticket-admin.form')
+        @include('livewire.view-ticket-admin.form2')
 
     </div>
 </div>
@@ -547,20 +495,16 @@
         window.livewire.on('show-modal', msg => {
             $('#theModal').modal('show');
         });
-
         window.livewire.on('show-modalC', msg => {
             $('#theModalC').modal('show');
         });
-        window.livewire.on('show-modal-Edicion', msg => {
-            $('#theModalEdicion').modal('show');
-        });
         window.livewire.on('ticket-update', msg => {
-            $('#theModalEdicion').modal('hide');
-             swal({
-            title: 'Exito',
-            text: msg,
-            type: 'success',
-        })
+            $('#theModal').modal('hide');
+            swal({
+                title: 'Exito',
+                text: msg,
+                type: 'success',
+            })
         });
 
 

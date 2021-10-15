@@ -4,7 +4,7 @@
 
                 <div class="theme-logo">
                     <a href="#">
-                        <img src="assets/img/C2.png" class="navbar-logo" alt="logo">
+                        <img src="{{ asset('assets/img/C2.png') }}" class="navbar-logo" alt="logo">
                     </a>
                 </div>
 
@@ -148,7 +148,7 @@
     
                     <div class="dropdown user-profile-dropdown">
                         <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="assets/img/boy-2.png" class="img-fluid mr-2" alt="avatar">
+                            <img src="{{ asset('assets/img/boy-2.png') }}" class="img-fluid mr-2" alt="avatar">
                         </a>
                         <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                             <div class="dropdown-inner">

@@ -19,7 +19,7 @@ class CompanyController extends Component
 
     private $pagination = 10;
     
-     public function paginationView(){
+     public function paginationView(){ 
         return 'vendor.livewire.bootstrap';
     }
 

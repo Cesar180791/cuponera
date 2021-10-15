@@ -35,7 +35,7 @@
                                 <td class="text-center"><h6>{{$r->codeCompany}}</h6></td>
                                 <td><h6 class="text-center">{{$r->profile}}</h6></td>
                                 <td class="text-center">
-                                    <a href="javascript:void(0)" class="btn btn-success mtmobile btn-sm" title="View">
+                                    <a href="{{ url('/admin-empresas/cupones/empresa/'.$r->id )}}" class="btn btn-success mtmobile btn-sm" title="View">
                                         <i class="far fa-eye"></i>
                                     </a>
                                       <a href="javascript:void(0)" class="btn btn-dark mtmobile btn-sm" wire:click="Edit({{$r->id}})" title="Edit">

@@ -13,8 +13,8 @@ use Livewire\withFileUploads; // trait para subir imagenes
 
 class ViewCouponCompanyController extends Component
 {
-    use withFileUploads;
-    use WithPagination;
+    use withFileUploads; 
+    use WithPagination; 
 
     public $componentName1, $componentName2, $componentName3, $componentName4,$componentName5, $componentName6, $pageTitle, $search,$searchAprobado, $searchRechazado, $searchDescartado, $searchFuturo, $searchPasada,$componentNameModalView,$selected_id, $titulo, $descripcion, $precioRegular, $PrecioOferta, $fechaInicio, $fechaFinal, $fechaLimiteCanje, $cantidadCupon, $otrosDetalles,$image,$motivo,$statusCoupon; 
 
@@ -184,7 +184,7 @@ class ViewCouponCompanyController extends Component
 
 
         $this->emit('show-modalC', 'show modal!'); 
-    }
+    } 
 
 
     public function Edit(Ticket $tickets){
