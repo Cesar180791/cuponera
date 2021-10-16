@@ -159,35 +159,12 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12">
-                                        <button type="button" class="btn btn-primary">Ver mas fertas de esta
-                                            empresa</button>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="profile-overview">
-                                            <button type="button" class="btn btn-success">Comprar</button>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
             </div>
-
-
-
-
-
-
         </div>
     </div>
 

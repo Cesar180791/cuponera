@@ -12,6 +12,7 @@ use App\Http\Livewire\BranchManagerController;
 use App\Http\Livewire\CouponCreatorController;     
 use App\Http\Livewire\ViewCouponCompanyController;
 use App\Http\Livewire\ViewTicketAdminController;
+use App\Http\Livewire\PostClienteController;
 
 
 /*
@@ -49,6 +50,10 @@ Route::middleware(['auth'])->group(function (){
     Route::get('dependientes-sucursal', BranchManagerController::class);
     Route::get('creador-cupon', CouponCreatorController::class);
     Route::get('ver-cupon', ViewCouponCompanyController::class);
+/*});*/
+
+/*Route::group(['middleware' => ['role:Cliente']], function () {*/
+    Route::get('home-cliente', PostClienteController::class);
 /*});*/
 
 

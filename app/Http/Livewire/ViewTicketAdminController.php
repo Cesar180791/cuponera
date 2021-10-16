@@ -257,6 +257,7 @@ class ViewTicketAdminController extends Component
         $this->cantidadCupon ='';
         $this->otrosDetalles ='';
         $this->image ='';
+         $this->statusCoupon = 'Seleccionar';
         $this->resetPage();
     }
 

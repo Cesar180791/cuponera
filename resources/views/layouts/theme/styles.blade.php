@@ -474,7 +474,7 @@ body {
 
 .profile-card-4 .profile-name p {
     font-weight: 600;
-    font-size: 13px;
+    font-size: 15px;
     letter-spacing: 1.5px;
 }
 
