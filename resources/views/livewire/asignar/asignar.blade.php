@@ -53,6 +53,7 @@
                                      @endforeach
                                 </tbody>
                             </table>
+                            {{$permisos->links()}}
                         </div>
                     </div>
                 </div>

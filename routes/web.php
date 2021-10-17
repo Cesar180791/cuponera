@@ -13,6 +13,7 @@ use App\Http\Livewire\CouponCreatorController;
 use App\Http\Livewire\ViewCouponCompanyController;
 use App\Http\Livewire\ViewTicketAdminController;
 use App\Http\Livewire\PostClienteController;
+use App\Http\Livewire\ViewSalesAdminController;
 
 
 /*
@@ -44,6 +45,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('empresas', EditCompanyController::class);
     Route::get('rubros', HeadingController::class);
     Route::get('admin-empresas/cupones/empresa/{idEmpresa}', ViewTicketAdminController::class);
+    Route::get('admin-empresas/cupones/empresa/ventas/{idticket}', ViewSalesAdminController::class);
 /*});*/
 
 /*Route::group(['middleware' => ['role:Empresa']], function () {*/

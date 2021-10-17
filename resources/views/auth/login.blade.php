@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
+<div class="container principal">
+    <div class=" text-center">
+            <div class="back card-section border rounded ">
+                <div class="card-header card-header-second rounded">
+                    <h2 class="card-header-title mb-3 mt-1 text-white">{{ __('Login') }}</h2>
+                </div>
+                        
+            
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -66,8 +68,32 @@
                         </div>
                     </form>
                 </div>
+
+
+                </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+
+<style>
+.principal{
+    margin-top:50px;
+}
+
+/*tarjeta 2*/
+.card-header-second{
+    margin:-25px -25px 0px -25px;
+    height: 70px;
+    background: linear-gradient(-90deg, #335EEA, #335EEA); 
+    width: 300px;
+}
+
+.back{
+    background: white;
+    width: 500px;
+    margin: auto;
+}
+</style>

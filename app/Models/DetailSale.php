@@ -9,7 +9,8 @@ class DetailSale extends Model
 {
     use HasFactory;
 
-    protected $fillable =[
+    protected $fillable =[ 
+        'price',
         'quantity',
         'ticket_id',
         'sale_id'

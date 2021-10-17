@@ -15,7 +15,8 @@ class CreateDetailSalesTable extends Migration
     {
         Schema::create('detail_sales', function (Blueprint $table) {
             $table->id();
-            $table->integer('quantity');
+            $table->decimal('price',10,2);
+            $table->decimal('quantity',10,2);
             $table->foreignId('ticket_id')->constrained();
             $table->foreignId('sale_id')->constrained();
             $table->timestamps();

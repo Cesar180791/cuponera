@@ -18,6 +18,7 @@ class CreateTicketWalletsTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('ticket_id')->constrained();
             $table->integer('quantity');
+            $table->integer('price');
             $table->string('codeCupon');
               $table->enum('statusTicketWallet',[
                 'Cupon Disponible',

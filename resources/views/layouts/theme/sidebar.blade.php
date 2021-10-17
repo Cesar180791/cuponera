@@ -158,7 +158,7 @@
                 </ul>
                
 
-                <div class="sidebar-bottom-actions position-sticky">
+                <div class="sidebar-bottom-actions">
     
                     <div class="dropdown user-profile-dropdown">
                         <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -602,5 +602,6 @@
                 </div>
 
             </div>
+             
 
         </div>

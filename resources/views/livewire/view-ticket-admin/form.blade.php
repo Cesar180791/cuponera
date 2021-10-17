@@ -21,65 +21,57 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group mb-4">
-                        <label for="formGroupExampleInput">Descripcion</label>
-                        <input wire:model.lazy="descripcion" type="text" class="form-control"
-                            placeholder="Ingrese descripcion" disabled>
+                        <label for="formGroupExampleInput">Descripcion</label><br>
+                        <label wire:model.lazy="descripcion"><span style="color: #001EFF">{{$descripcion}}</span><label>
                         @error('descripcion') <span class="text-danger er">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group mb-4">
-                        <label for="formGroupExampleInput">Precio Regular</label>
-                        <input wire:model.lazy="precioRegular" type="text" class="form-control"
-                            placeholder="Ingrese precio regular" disabled>
+                        <label for="formGroupExampleInput">Precio Regular</label><br>
+                        <label wire:model.lazy="precioRegular"><span style="color: #001EFF">${{$precioRegular}}</span><label>
                         @error('precioRegular') <span class="text-danger er">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group mb-4">
-                        <label for="formGroupExampleInput">Precio Oferta</label>
-                        <input wire:model.lazy="PrecioOferta" type="text" class="form-control"
-                            placeholder="Ingrese precio oferta" disabled>
+                        <label for="formGroupExampleInput">Precio Oferta</label><br>
+                        <label wire:model.lazy="PrecioOferta"><span style="color: #001EFF">${{$PrecioOferta}}</span></label>
                         @error('PrecioOferta') <span class="text-danger er">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group mb-4">
-                        <label for="formGroupExampleInput">Fecha Inicio</label>
-                        <input wire:model="fechaInicio" type="text" class="form-control flatpickr"
-                            placeholder="Click para seleccionar" disabled>
+                        <label for="formGroupExampleInput">Fecha Inicio</label><br>
+                        <label wire:model="fechaInicio"><span style="color: #001EFF">{{$fechaInicio}}</span></label>
                         @error('fechaInicio') <span class="text-danger er">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group mb-4">
-                        <label for="formGroupExampleInput">Fecha Final de Venta</label>
-                        <input wire:model="fechaFinal" type="text" class="form-control flatpickr"
-                            placeholder="Click para seleccionar" disabled>
+                        <label for="formGroupExampleInput">Fecha Final de Venta</label><br>
+                        <label wire:model="fechaFinal"><span style="color: #001EFF">{{$fechaFinal}}</span></label>
                         @error('fechaFinal') <span class="text-danger er">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group mb-4">
-                        <label for="formGroupExampleInput">Fecha Final de Canje</label>
-                        <input wire:model="fechaLimiteCanje" type="text" class="form-control flatpickr"
-                            placeholder="Click para seleccionar" disabled>
+                        <label for="formGroupExampleInput">Fecha Final de Canje</label><br>
+                        <label wire:model="fechaLimiteCanje"><span style="color: #001EFF">{{$fechaLimiteCanje}}</span></label>
                         @error('fechaLimiteCanje') <span class="text-danger er">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group mb-4">
-                        <label for="formGroupExampleInput">Cantidad Limite</label>
-                        <input wire:model.lazy="cantidadCupon" type="number" class="form-control"
-                            placeholder="Cantidad" disabled>
+                        <label for="formGroupExampleInput">Cantidad Limite</label><br>
+                        <label wire:model.lazy="cantidadCupon"><span style="color: #001EFF">{{$cantidadCupon}}</span></label>
                         @error('cantidadCupon') <span class="text-danger er">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group mb-4">
-                        <label for="formGroupExampleInput">Otros Detalles</label>
-                        <input wire:model.lazy="otrosDetalles" type="text" class="form-control"
-                            placeholder="Ingrese detalles adicionales (Opcional)" disabled>
+                        <label for="formGroupExampleInput">Otros Detalles</label><br>
+                        <label wire:model.lazy="otrosDetalles"><span style="color: #001EFF">{{$otrosDetalles}}</span>
                         @error('otrosDetalles') <span class="text-danger er">{{ $message }}</span> @enderror
                     </div>
                 </div>
