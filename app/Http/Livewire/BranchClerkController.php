@@ -12,7 +12,7 @@ class BranchClerkController extends Component
 {
     use withPagination;
 
-    public $search, $nameCompanies, $name, $cliente, $dui, $limit,$codeCupon;
+    public $search, $nameCompanies, $name, $cliente, $dui, $limit,$codeCupon, $idWallet;
 
     private $pagination = 10;
 
@@ -25,32 +25,13 @@ class BranchClerkController extends Component
 
     public function render()
     {
-        /*
-         if (strlen($this->search) > 0)
-            $disponibleCliente = TicketWallet::join('tickets as t', 't.id','ticket_wallets.ticket_id')
-            ->join('companies as c', 'c.id', 't.company_id')
-            ->join('users as u', 'u.company_id','c.id')
-            ->select('t.*','ticket_wallets.*','ticket_wallets.quantity as cantidadDisponible','c.nameCompanies')
-            ->where([
-                ['ticket_wallets.codeCupon', '=', $this->search],
-                ['beging', '<=', date('Y-m-d')],
-                ['limit', '>=', date('Y-m-d')],
-                ['ticket_wallets.quantity', '>=', 1],
-                ['ticket_wallets.statusTicketWallet', '=', 'Cupon Disponible'],
-                ['ticket_wallets.codeCupon','like', '%' . $this->search . '%'],
-            ])
-            ->orderBy('t.name','asc')->paginate($this->pagination);
-
-            else
-                $disponibleCliente = [];
-
-*/
-
+        
         return view('livewire.branch-clerk.branch-clerk')->extends('layouts.theme.app')->section('content');
     }
 
     protected $listeners =[
     'buscar' => 'buscarTicket',
+    'cobrar'=> 'Canjear'
     ];
 
 
@@ -58,10 +39,10 @@ class BranchClerkController extends Component
         $codigo = TicketWallet::join('tickets as t', 't.id','ticket_wallets.ticket_id')
         ->join('companies as c', 'c.id', 't.company_id')
         ->join('users as u', 'u.id','ticket_wallets.user_id', 'c.nameCompanies as empresa')
-        ->select('t.*','t.name as nombreTicket', 'ticket_wallets.*','u.*')
+        ->select('t.*','t.name as nombreTicket', 'ticket_wallets.id as cupon' ,'ticket_wallets.*','u.*')
         ->where('codeCupon', $cupon)->first();
-      
 
+   
         if ($codigo->quantity >= 1 ) {
                if ($codigo->beging <= date('Y-m-d') && $codigo->limit >=date('Y-m-d')){
                     $this->nameCompanies = $codigo->empresa;
@@ -70,6 +51,7 @@ class BranchClerkController extends Component
                    $this->dui = $codigo->dui;
                    $this->limit = $codigo->limit;
                    $this->codeCupon = $codigo->codeCupon;
+                   $this->idWallet = $codigo->cupon;
                     $this->emit('cupo-encontrado','El cupon ha sido agregado');
                 }
                 else{
@@ -80,25 +62,36 @@ class BranchClerkController extends Component
         }
     
         
-
-      
-        /*
-
-
-
-        $disponibleCliente = TicketWallet::join('tickets as t', 't.id','ticket_wallets.ticket_id')
-            ->join('companies as c', 'c.id', 't.company_id')
-            ->join('users as u', 'u.company_id','c.id')
-            ->select('t.*','ticket_wallets.*','ticket_wallets.quantity as cantidadDisponible','c.nameCompanies')
-            ->where([
-                ['ticket_wallets.codeCupon', '=', $this->search],
-                ['beging', '<=', date('Y-m-d')],
-                ['limit', '>=', date('Y-m-d')],
-                ['ticket_wallets.quantity', '>=', 1],
-                ['ticket_wallets.statusTicketWallet', '=', 'Cupon Disponible'],
-                ['ticket_wallets.codeCupon','like', '%' . $this->search . '%'],
-            ])*/
     }
+
+    public function Canjear($descontar){
+
+        $buscar = TicketWallet::where('id', $descontar)->first();
+        $actualizarExistencia = $buscar->quantity -1;
+       
+         $buscar->update([
+        'quantity' => $actualizarExistencia,
+        ]);
+
+
+    $Usado = UsedTicket::create([
+        'fechaCanjeado' => date('Y-m-d'),
+        'ticket_wallets_id' => $buscar->id,
+    ]);
+
+    $this->emit('Cupon-canjeado','Cupon Canjeado Exitosamente');
+
+                    $this->nameCompanies = "";
+                   $this->name = "";
+                   $this->cliente = "";
+                   $this->dui = "";
+                   $this->limit = "";
+                   $this->codeCupon = "";
+                   $this->idWallet = "";
+                   $this->search ="";
+      
+    }
+
 
 
 }
