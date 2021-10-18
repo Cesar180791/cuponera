@@ -34,6 +34,7 @@ class UsersController extends Component
             $data = User::where([
                 ['profile', '!=', 'Dependientes_Sucursal'],
                 ['profile', '!=', 'Empresa'],
+                ['profile', '!=', 'Cliente'],
                 ['name', 'like', '%'.$this->search.'%']
             ])->select('*')->orderBy('name','asc')->paginate($this->pagination);
         else 

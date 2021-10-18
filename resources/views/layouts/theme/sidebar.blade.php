@@ -9,16 +9,6 @@
                 </div>
 
                 <ul class="menu-categories">
-                    <li class="menu menu-single active">
-                        <a href="index.html" data-active="true" class="menu-toggle">
-                            <div class="base-menu">
-                                <div class="base-icons">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="tooltip"><span>Dashboard</span></div>
-                    </li>
                     @can('Rubros_Index')
                     <li class="menu menu-single">
                         <a href="{{ url('/rubros')}}" data-active="false" class="menu-toggle">
@@ -53,6 +43,30 @@
                             </div>
                         </a>
                         <div class="tooltip"><span>Permisos</span></div>
+                    </li>
+                    @endcan
+                    @can('Asignar_Index')
+                     <li class="menu menu-single">
+                        <a href="{{ url('/asignar')}}" data-active="false" class="menu-toggle">
+                            <div class="base-menu">
+                                <div class="base-icons">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="tooltip"><span>Asignar</span></div>
+                    </li>
+                     @endcan
+                    @can('Clientes_Admin_Index')
+                    <li class="menu menu-single">
+                        <a href="{{ url('/clientes')}}" data-active="false" class="menu-toggle">
+                            <div class="base-menu">
+                                <div class="base-icons">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="tooltip"><span>Clientes</span></div>
                     </li>
                     @endcan
                     @can('Usuarios_Index')
@@ -91,18 +105,6 @@
                         <div class="tooltip"><span>Administradores de Empresas</span></div>
                     </li>
                     @endcan
-                    @can('Asignar_Index')
-                     <li class="menu menu-single">
-                        <a href="{{ url('/asignar')}}" data-active="false" class="menu-toggle">
-                            <div class="base-menu">
-                                <div class="base-icons">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="tooltip"><span>Asignar</span></div>
-                    </li>
-                     @endcan
                     @can('Dependientes_Index')
                      <li class="menu menu-single">
                         <a href="{{ url('/dependientes-sucursal')}}" data-active="false" class="menu-toggle">
@@ -147,12 +149,37 @@
                             <div class="base-menu">
                                 <div class="base-icons">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-</svg>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                                 </div>
                             </div>
                         </a>
-                        <div class="tooltip"><span>Cupones Disponibles</span></div>
+                        <div class="tooltip"><span>Comprar Cupones</span></div>
+                    </li>
+                     @endcan
+                    @can('Ticket_Cliente')
+                     <li class="menu menu-single">
+                        <a href="{{ url('/ticket-cliente')}}" data-active="false" class="menu-toggle">
+                            <div class="base-menu">
+                                <div class="base-icons">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" /></svg>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="tooltip"><span>Mis Cupones</span></div>
+                    </li>
+                     @endcan
+                     @can('Cobrar_Cupon_Dependientes')
+                     <li class="menu menu-single">
+                        <a href="{{ url('/cobrar-cupon')}}" data-active="false" class="menu-toggle">
+                            <div class="base-menu">
+                                <div class="base-icons">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="tooltip"><span>Mis Cupones</span></div>
                     </li>
                      @endcan
                 </ul>

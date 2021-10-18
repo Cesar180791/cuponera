@@ -13,7 +13,11 @@ use App\Http\Livewire\CouponCreatorController;
 use App\Http\Livewire\ViewCouponCompanyController;
 use App\Http\Livewire\ViewTicketAdminController;
 use App\Http\Livewire\PostClienteController;
-use App\Http\Livewire\ViewSalesAdminController;
+use App\Http\Livewire\TickeClienteController;
+use App\Http\Livewire\ViewClienteAdminController;
+use App\Http\Livewire\TickeClienteViewAdminController;
+use App\Http\Livewire\BranchClerkController;
+
 
 
 /*
@@ -44,8 +48,9 @@ Route::middleware(['auth'])->group(function (){
     Route::get('admin-empresas', CompanyController::class);
     Route::get('empresas', EditCompanyController::class);
     Route::get('rubros', HeadingController::class);
+    Route::get('clientes', ViewClienteAdminController::class);
+    Route::get('clientes/cupones/{idCliente}', TickeClienteViewAdminController::class);
     Route::get('admin-empresas/cupones/empresa/{idEmpresa}', ViewTicketAdminController::class);
-    Route::get('admin-empresas/cupones/empresa/ventas/{idticket}', ViewSalesAdminController::class);
 /*});*/
 
 /*Route::group(['middleware' => ['role:Empresa']], function () {*/
@@ -56,10 +61,12 @@ Route::middleware(['auth'])->group(function (){
 
 /*Route::group(['middleware' => ['role:Cliente']], function () {*/
     Route::get('home-cliente', PostClienteController::class);
+    Route::get('ticket-cliente', TickeClienteController::class);
 /*});*/
 
-
-
+/*Route::group(['middleware' => ['role:Dependientes_Sucursal']], function () {*/
+    Route::get('cobrar-cupon', BranchClerkController::class);
+/*});*/
 
 });
 

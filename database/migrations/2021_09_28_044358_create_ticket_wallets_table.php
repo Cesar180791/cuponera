@@ -22,7 +22,6 @@ class CreateTicketWalletsTable extends Migration
             $table->string('codeCupon');
               $table->enum('statusTicketWallet',[
                 'Cupon Disponible',
-                'Cupon Canjeado',
                 'Cupon Vencido'
             ])->default('Cupon Disponible');
             $table->timestamps();

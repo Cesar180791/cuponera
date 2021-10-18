@@ -17,9 +17,6 @@ class ViewTicketAdminController extends Component
 
     public function mount($idEmpresa){
 
-
-
-
         $this->componentName1 = 'En Espera de Aprobacion';
         $this->componentName2 = 'Aprobadas';
         $this->componentName3 = 'Rechazadas';
